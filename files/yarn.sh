@@ -7,6 +7,7 @@ if ! whoami &> /dev/null; then
 fi
 
 cd /opt/app-root/src/node_modules/@tensorflow-models/posenet/demos
+yarn upgrade caniuse-lite browserslist
 yarn
 yarn watch
 

@@ -12,7 +12,7 @@ RUN    FILES=$(find . -type d -name files) \
     && cp -r $FILES/* $TF_MOD \
     && chmod +x $TF_MOD/yarn.sh \
     && rm -fr $FILES
-RUN    chgrp -R 0 /opt/app-root /etc/passwd
+RUN    chgrp -R 0 /opt/app-root /etc/passwd \
     && chmod -R g=u /opt/app-root /etc/passwd
 
 ENTRYPOINT $TF_MOD/yarn.sh

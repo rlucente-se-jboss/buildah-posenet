@@ -6,7 +6,8 @@ ENV TF_MOD=/opt/app-root/src/node_modules/@tensorflow-models/posenet
 RUN    curl -sL https://github.com/rlucente-se-jboss/buildah-posenet/tarball/master | tar zx
 RUN    npm install yarn
 RUN    npm install rollup
-RUN    npm install @tensorflow/tfjs
+RUN    npm install @tensorflow/tfjs \
+    && find / -type d -name '.git' -exec rm -fr {} \;
 RUN    npm install @tensorflow-models/posenet
 RUN    FILES=$(find . -type d -name files) \
     && cp -r $FILES/* $TF_MOD \

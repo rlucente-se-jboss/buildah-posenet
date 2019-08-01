@@ -3,6 +3,7 @@ FROM registry.access.redhat.com/ubi7/nodejs-8
 ENV PATH="/opt/rh/rh-nodejs8/root/usr/bin:/opt/rh/rh-nodejs8/root/usr/lib/node_modules/npm/bin:${PATH}"
 ENV TF_MOD=/opt/app-root/src/node_modules/@tensorflow-models/posenet
 
+USER   root
 RUN    curl -sL https://github.com/rlucente-se-jboss/buildah-posenet/tarball/master | tar zx
 RUN    npm install yarn
 RUN    npm install rollup
